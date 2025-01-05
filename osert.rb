@@ -257,14 +257,14 @@ begin
     puts '[+] Preparing your final report...'
     # Choose syntax highlight style
     style = 'breezedark'
-    puts "[+] Choose syntax highlight style [#{style}]:"
-    styles = `pandoc --list-highlight-styles`.split("\n")
-    styles.each_with_index do |s, i|
-      puts "#{colors[:red]}#{i}. #{s}#{colors[:nocolor]}"
-    end
-    puts_prompt
-    choice = gets.chomp
-    style = styles[choice.to_i] unless choice.empty?
+    # puts "[+] Choose syntax highlight style [#{style}]:"
+    # styles = `pandoc --list-highlight-styles`.split("\n")
+    # styles.each_with_index do |s, i|
+    #   puts "#{colors[:red]}#{i}. #{s}#{colors[:nocolor]}"
+    # end
+    # puts_prompt
+    # choice = gets.chomp
+    # style = styles[choice.to_i] unless choice.empty?
 
     if options[:input]
       input = options[:input]
@@ -317,29 +317,29 @@ begin
     puts "[+] PDF generated at #{colors[:red]}#{pdf}#{colors[:nocolor]}"
 
     # Preview
-    puts_prompt '[+] Do you want to preview the report? [Y/n]'
-    choice = gets.chomp
-    if choice.downcase == 'y' || choice.empty?
-      viewer = fork do
-        exec "xdg-open #{pdf.shellescape}"
-      end
-      Process.detach(viewer)
-    end
+    puts '[+] Do you want to preview the report? [Y/n]'
+    # choice = gets.chomp
+    # if choice.downcase == 'y' || choice.empty?
+    #   viewer = fork do
+    #     exec "xdg-open #{pdf.shellescape}"
+    #   end
+    #   Process.detach(viewer)
+    # end
 
     # Generating archive
     puts '[+] Generating archive...'
     archive = "#{output}/#{exam}-#{osid}-Exam-Report.7z"
-    `7z a #{archive.shellescape} #{File.expand_path(pdf.shellescape)}`
+    `7z a "#{archive.shellescape}" "#{File.expand_path(pdf.shellescape)}"`
 
     # Optional lab report
-    puts_prompt '[+] Do you want to add an external lab report? [Y/n]'
-    choice = gets.chomp
-    if choice.downcase == 'y' || choice.empty?
-      puts_prompt '[+] Write the path of your lab PDF:'
-      lab = gets.chomp
-      puts '[+] Updating archive...'
-      `7z a #{archive.shellescape} #{File.expand_path(lab.shellescape)}`
-    end
+    puts '[+] Do you want to add an external lab report? [Y/n]'
+    # choice = gets.chomp
+    # if choice.downcase == 'y' || choice.empty?
+    #   puts_prompt '[+] Write the path of your lab PDF:'
+    #   lab = gets.chomp
+    #   puts '[+] Updating archive...'
+    #   `7z a #{archive.shellescape} #{File.expand_path(lab.shellescape)}`
+    # end
 
     puts "[+] Archive generated at #{colors[:red]}#{archive}#{colors[:nocolor]}"
 
