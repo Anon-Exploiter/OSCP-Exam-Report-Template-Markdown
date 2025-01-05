@@ -8,7 +8,7 @@ Modified the file to remove interactions and to make it simple to generate repor
 
 ```bash
 mkdir output
-ruby osert.rb generate -i ./OSXX-exam-report-template_OS_v1.md -o ./output -s OS-XXXXX -e OSWP -r ./assets
+ruby osert.rb generate -i ./OSXX-exam-report-template_OS_v1.md -o ./output -s OS-XXXXX -e OSXX -r ./assets
 ```
 
 
