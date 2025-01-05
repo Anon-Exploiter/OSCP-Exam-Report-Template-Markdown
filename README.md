@@ -1,5 +1,23 @@
 # Offensive Security Exam Report Template in Markdown
 
+
+
+## Fork Usage
+
+Modified the file to remove interactions and to make it simple to generate report, various times and quickly. 
+
+```bash
+mkdir output
+ruby osert.rb generate -i ./OSXX-exam-report-template_OS_v1.md -o ./output -s OS-XXXXX -e OSWP -r ./assets
+```
+
+
+
+
+# Project Readme
+
+
+
 [![Rawsec's CyberSecurity Inventory](https://inventory.raw.pm/img/badges/Rawsec-inventoried-FF5050_flat-square.svg)](https://inventory.raw.pm/tools.html#OSCP%20Exam%20Report%20Template%20in%20Markdown)
 [![GitHub stars](https://img.shields.io/github/stars/noraj/OSCP-Exam-Report-Template-Markdown?style=flat-square)](https://github.com/noraj/OSCP-Exam-Report-Template-Markdown/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/noraj/OSCP-Exam-Report-Template-Markdown?style=flat-square)](https://github.com/noraj/OSCP-Exam-Report-Template-Markdown/network)
